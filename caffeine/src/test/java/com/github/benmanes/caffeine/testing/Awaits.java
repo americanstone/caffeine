@@ -26,6 +26,10 @@ import org.awaitility.core.ConditionFactory;
 @SuppressWarnings("PreferJavaTimeOverload")
 public final class Awaits {
 
+  static {
+    Awaitility.pollExecutorService(ConcurrentTestHarness.executor);
+  }
+
   private Awaits() {}
 
   /** Returns a configured {@link ConditionFactory} that polls at a short interval. */

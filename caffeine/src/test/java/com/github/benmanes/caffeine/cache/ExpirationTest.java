@@ -114,7 +114,7 @@ public final class ExpirationTest {
       expiry = { CacheExpiry.DISABLED, CacheExpiry.CREATE, CacheExpiry.WRITE, CacheExpiry.ACCESS },
       expireAfterAccess = {Expire.DISABLED, Expire.ONE_MINUTE}, expiryTime = Expire.ONE_MINUTE,
       expireAfterWrite = {Expire.DISABLED, Expire.ONE_MINUTE}, compute = Compute.SYNC,
-      scheduler = CacheScheduler.MOCK)
+      scheduler = CacheScheduler.MOCKITO)
   public void schedule(Cache<Integer, Integer> cache, CacheContext context) {
     ArgumentCaptor<Long> delay = ArgumentCaptor.forClass(long.class);
     ArgumentCaptor<Runnable> task = ArgumentCaptor.forClass(Runnable.class);
@@ -146,7 +146,7 @@ public final class ExpirationTest {
       expiry = { CacheExpiry.DISABLED, CacheExpiry.CREATE, CacheExpiry.WRITE, CacheExpiry.ACCESS },
       expireAfterAccess = {Expire.DISABLED, Expire.ONE_MINUTE}, expiryTime = Expire.ONE_MINUTE,
       expireAfterWrite = {Expire.DISABLED, Expire.ONE_MINUTE}, compute = Compute.SYNC,
-      scheduler = CacheScheduler.MOCK)
+      scheduler = CacheScheduler.MOCKITO)
   public void schedule_immediate(Cache<Integer, Integer> cache, CacheContext context) {
     doAnswer(invocation -> {
       ((Runnable) invocation.getArgument(1)).run();
